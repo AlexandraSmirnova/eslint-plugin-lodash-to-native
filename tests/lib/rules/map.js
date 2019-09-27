@@ -4,7 +4,7 @@
  */
 "use strict";
 
-const  rule = require("../../../lib/rules/map");
+const rule = require("../../../lib/rules/map");
 const { RuleTester } = require("eslint");
 
 const ruleTester = new RuleTester();
@@ -19,7 +19,7 @@ ruleTester.run("map", rule, {
         {
             code: "var collection = [];\nvar a = _.map(collection, fn);",
             errors: [{
-                message: "map",
+                message: "'collection' ia an array. You can use it instead of lodash",
             }],
             output: "var collection = [];\nvar a = collection.map(fn);"
         }

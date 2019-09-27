@@ -4,7 +4,6 @@
  */
 "use strict";
 
-const requireIndex = require("requireindex"); //?
 const MapRule = require("./lib/rules/map.js");
 
 module.exports = {
