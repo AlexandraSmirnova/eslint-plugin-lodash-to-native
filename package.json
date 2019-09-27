@@ -1,0 +1,27 @@
+{
+  "name": "eslint-plugin-lodash-to-native",
+  "version": "1.0.0",
+  "description": "Suggest to change Lodash to native",
+  "repository": "https://github.com/AlexandraSmirnova/eslint-plugin-lodash-to-native",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Alexandra",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "dependencies": {
+    "requireindex": "~1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "~6.4.0",
+    "mocha": "^3.1.2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "ISC"
+}
