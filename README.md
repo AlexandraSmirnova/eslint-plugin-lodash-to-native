@@ -1,34 +1,65 @@
 # eslint-plugin-lodash-to-native
 
-Suggest to change Lodash to native
+В библиотеке Lodash есть функция map. Она может использоваться как с массивами, так и с объектами.
+Плагин содержит правило map, которое находит использование функции `_.map`, например `_.map(collection, fn)`, и, если это возможно, предлагает заменить его на использование нативного `Array#map`
 
-## Installation
+## Установка
 
-You'll first need to install [ESLint](http://eslint.org):
-
-```
-$ npm i eslint --save-dev
-```
-
-Next, install `eslint-plugin-lodash-to-native`:
+Установка [ESLint](http://eslint.org):
 
 ```
-$ npm install eslint-plugin-lodash-to-native --save-dev
+$ yarn add eslint -D
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-lodash-to-native` globally.
+Установка `eslint-plugin-lodash-to-native`:
 
-## Usage
+```
+$ yarn add eslint-plugin-lodash-to-native -D
+```
 
-Add `lodash-to-native` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+**Note:** Если Eslint был установлен глобально, то и плагин нужно установить глобально .
+
+## Применение
+
+В конфигурации `.eslintrc` нужно добавить следующее:
 
 ```json
 {
     "plugins": [
         "lodash-to-native"
-    ]
+    ],
+    "rules": {
+        "lodash-to-native/map": "warn"
+    }
 }
 ```
+
+## Правило map
+1) Первый аргумент map - идентификатор массива
+```js
+return _.map(collection, fn);
+```
+заменит на:
+```js
+return (Array.isArray(collection)) 
+    ? collection.map(fn)
+    : _.map(collection, fn);
+```
+2) Первый аргумент map - литерал массива
+```js
+_.map([1, 2, 3], fn)
+```
+заменит на:
+```js
+[1, 2, 3].map(fn)
+```
+
+## Запуск тестов
+```
+yarn test
+```
+
+
 
 
 

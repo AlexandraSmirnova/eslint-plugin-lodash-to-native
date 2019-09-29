@@ -286,7 +286,6 @@ module.exports = {
             "error",
             "never"
         ],
-        "valid-jsdoc": "error",
         "vars-on-top": "error",
         "wrap-iife": "error",
         "wrap-regex": "error",
