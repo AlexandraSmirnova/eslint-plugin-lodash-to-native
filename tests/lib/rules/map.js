@@ -39,14 +39,13 @@ ruleTester.run("map", rule, {
             output: "var a = [1, 2, 3].map(fn);"
         },
         {
-            code: "function test() { return _.map(bar, fn); }",
+            code: "var a = _.map(Math.random() < 0.5 ? [11, 22] : [1, 2], fn);",
             errors: [
                 {
                     message: ERROR_MESSAGE,
                 }
             ],
-            output: "function test() { return _.map(bar, fn); }"
+            output: "var a = (Math.random() < 0.5 ? [11, 22] : [1, 2]).map(fn);"
         },
-
     ]
 });
